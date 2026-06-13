@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const productionApiBase = 'https://fitcoach-pro-api.onrender.com/api'
+const productionApiBase = 'https://fitcoach-pro.onrender.com/api'
 
 const api = axios.create({
   baseURL:
