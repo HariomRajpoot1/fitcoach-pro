@@ -6,7 +6,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://fitcoach-pro.onrender.com/api/:path*"
+      "destination": "https://fitcoach-pr.onrender.com/api/:path*"
     },
     {
       "source": "/(.*)",

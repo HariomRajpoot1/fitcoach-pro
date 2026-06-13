@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_BASE_URL = 'https://fitcoach-pro.onrender.com/api'
+const API_BASE_URL = 'https://fitcoach-pr.onrender.com/api'
 
 const api = axios.create({
   baseURL: API_BASE_URL,
