@@ -78,7 +78,7 @@ function buildDashboardPayload(profileRecord) {
   const workoutPlan = parseField(profileRecord.workout_plan_json || profileRecord.workoutPlanJson);
   const progressLogs = parseField(profileRecord.progress_logs_json || profileRecord.progressLogsJson);
 
-  return {
+  return { 
     profile: assessment,
     metrics,
     fitnessScore: createFitnessScore(assessment, metrics),
