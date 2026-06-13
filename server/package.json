@@ -1,0 +1,20 @@
+{
+  "name": "fitcoach-pro-server",
+  "version": "1.0.0",
+  "description": "Backend API for FitCoach Pro",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "node --test"
+  },
+  "keywords": ["fitness", "express", "jwt", "mysql"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15"
+  }
+}
