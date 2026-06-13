@@ -187,7 +187,11 @@ function App() {
       setAuthState({ token: response.data.token, user: response.data.user })
       setError('')
     } catch (requestError) {
-      setError(requestError.response?.data?.message || 'Unable to authenticate right now.')
+      setError(
+        requestError.response?.data?.message ||
+          requestError.message ||
+          'Unable to authenticate right now.'
+      )
     } finally {
       setIsSubmittingAuth(false)
     }
