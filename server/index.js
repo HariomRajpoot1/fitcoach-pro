@@ -17,10 +17,14 @@ const app = express();
 const PORT = Number(process.env.PORT || 3001);
 const HOST = process.env.HOST || '0.0.0.0';
 
-const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173')
-  .split(',')
-  .map((origin) => origin.trim())
-  .filter(Boolean);
+const allowedOrigins = new Set(
+  (process.env.CLIENT_URL || 'http://localhost:5173')
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean)
+);
+
+const allowAnyVercelOrigin = process.env.ALLOW_ANY_VERCEL_ORIGIN !== 'false';
 
 const generalRateLimiter = createRateLimiter({
   windowMs: Number(process.env.RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000),
@@ -39,7 +43,11 @@ app.use(express.json({ limit: '1mb' }));
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (
+        !origin ||
+        allowedOrigins.has(origin) ||
+        (allowAnyVercelOrigin && /\.vercel\.app$/i.test(new URL(origin).hostname))
+      ) {
         return callback(null, true);
       }
 
