@@ -5,6 +5,14 @@
   "outputDirectory": "client/dist",
   "rewrites": [
     {
+      "source": "/api",
+      "destination": "https://fitcoach-pro-api.onrender.com/api"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://fitcoach-pro-api.onrender.com/api/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
