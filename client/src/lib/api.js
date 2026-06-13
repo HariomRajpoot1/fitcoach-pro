@@ -1,13 +1,9 @@
 import axios from 'axios'
 
-const runtimeApiBase =
-  (typeof window !== 'undefined' && window.__FITCOACH_CONFIG__?.API_BASE_URL) || null
+const API_BASE_URL = 'https://fitcoach-pro.onrender.com/api'
 
 const api = axios.create({
-  baseURL:
-    import.meta.env.VITE_API_BASE_URL ||
-    runtimeApiBase ||
-    '/api',
+  baseURL: API_BASE_URL,
 })
 
 export function setAuthToken(token) {
